@@ -11,15 +11,15 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
     signIn(email, password)
-      .then(() => {
+      .then((res) => {
+        console.log(res.user);
         toast.success("User Logged in successfully");
         // navigate the user
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
-        toast(err.message);
+        toast.error(err.message);
       });
   };
   return (

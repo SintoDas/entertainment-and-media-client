@@ -5,11 +5,16 @@ import Login from "../components/Fom/Login";
 import Register from "../components/Fom/Register";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import AddProduct from "../components/AddProduct";
+import NotFound from "../components/NotFound";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import MyCart from "../pages/MyCart/MyCart";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <NotFound />,
+
     children: [
       {
         path: "/",
@@ -29,7 +34,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/addItem",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <PrivateRoute>
+            <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/cart",
+        element: (
+          <PrivateRoute>
+            <MyCart></MyCart>
+          </PrivateRoute>
+        ),
       },
     ],
   },

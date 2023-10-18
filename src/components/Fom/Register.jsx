@@ -12,8 +12,8 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photo = form.photoUrl.value;
-    console.log(name, email, password, photo);
+    const img = form.photo.value;
+    console.log(name, email, password, img);
     const accepted = e.target.terms.checked;
     if (password.length < 6) {
       toast.error("please provide a password at least 6 characters");
@@ -31,15 +31,12 @@ const Register = () => {
     // create user
     createUser(email, password)
       .then(() => {
-        handleUpdateProfile(name, photo).then(() => {
+        handleUpdateProfile(name, img).then(() => {
           toast.success("User created successfully");
           navigate("/login");
         });
       })
       .catch((err) => toast(err.message));
-
-    //   profile Update
-    handleUpdateProfile(name, photo);
   };
   return (
     <div className="bg-gray-100 flex items-center justify-center h-screen">
@@ -86,7 +83,7 @@ const Register = () => {
             <input
               type="text"
               id="photoUrl"
-              name="photoUrl"
+              name="photo"
               className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-400"
               placeholder="Enter your photo url here..."
               required

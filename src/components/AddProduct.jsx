@@ -84,10 +84,10 @@ const AddProduct = () => {
               className="w-full px-3 py-2 border rounded-md"
             />
           </div>
-          <div className="mt-2">
+          <div className="mt-2 text-center">
             <button
               type="submit"
-              className="bg-orange-700 text-white px-4 py-2 rounded-md hover:bg-orange-500"
+              className="bg-orange-700 text-white px-4 py-2 rounded-md hover:bg-orange-500 "
             >
               Add Item
             </button>
