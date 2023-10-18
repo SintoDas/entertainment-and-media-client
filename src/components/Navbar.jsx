@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import navImg from "../assets/entertainment.png";
 
 const Navbar = () => {
   const navLinks = (
@@ -17,7 +18,7 @@ const Navbar = () => {
       </NavLink>
 
       <NavLink
-        to="/products"
+        to="/"
         className={({ isActive, isPending }) =>
           isPending
             ? "pending"
@@ -29,7 +30,7 @@ const Navbar = () => {
         Add Products
       </NavLink>
       <NavLink
-        to="/carts"
+        to="/"
         className={({ isActive, isPending }) =>
           isPending
             ? "pending"
@@ -70,7 +71,14 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <a className="normal-case text-xl flex items-center gap-2">
+            <img
+              className="w-6 h-6 object-cover"
+              src={navImg}
+              alt="media-image"
+            />
+            <span className="text-orange-800">Entertainment & media</span>
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
