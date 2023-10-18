@@ -5,9 +5,7 @@ const Banner = () => {
     <div>
       <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 py-16 px-4 text-white">
         <div className="max-w-5xl mx-auto flex flex-col items-center justify-center text-center">
-          <h1 className="text-4xl font-extrabold mb-4">
-            Your Entertainment Hub
-          </h1>
+          <h1 className="text-4xl font-extrabold mb-4">Entertainment Hub</h1>
           <p className="text-lg mb-6">
             Explore the world of music, movies, and more!
           </p>

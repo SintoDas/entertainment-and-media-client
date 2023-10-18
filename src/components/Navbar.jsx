@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import navImg from "../assets/entertainment.png";
 
 const Navbar = () => {
@@ -77,14 +77,16 @@ const Navbar = () => {
               src={navImg}
               alt="media-image"
             />
-            <span className="text-orange-800">Entertainment & media</span>
+            <span className="text-orange-00">Entertainment & media</span>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Login</a>
+          <Link to="/login" className="btn text-orange-700">
+            Login
+          </Link>
         </div>
       </div>
     </div>
