@@ -1,17 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Navbar from "../Navbar";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+    signIn(email, password)
+      .then(() => {
+        toast.success("User Logged in successfully");
+        // navigate the user
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
+        toast(err.message);
+      });
+  };
   return (
     <div>
-      <Navbar></Navbar>
       <div className="bg-gray-100 flex items-center justify-center h-screen mt-10">
         <div className="bg-white p-8 rounded-lg shadow-md w-96">
           <h2 className="text-2xl text-center font-semibold mb-4 text-orange-400">
             Login Now
           </h2>
-          <form>
+          <form onSubmit={handleLogin}>
             <div className="mb-4">
               <label className="block text-gray-600">Email</label>
               <input

@@ -1,12 +1,12 @@
 import Banner from "../../components/Banner";
 import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
+import AboutUs from "../AboutUs/AboutUs";
 
 const Home = () => {
   return (
     <div>
-      <Navbar></Navbar>
       <Banner></Banner>
+      <AboutUs></AboutUs>
       <Footer></Footer>
     </div>
   );

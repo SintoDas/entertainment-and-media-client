@@ -1,7 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import navImg from "../assets/entertainment.png";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const handleSignOut = () => {
+    logOut();
+  };
   const navLinks = (
     <>
       <NavLink
@@ -11,23 +18,23 @@ const Navbar = () => {
             ? "pending"
             : isActive
             ? "underline text-orange-700 px-5 mr-3 py-3 text-lg rounded-lg"
-            : ""
+            : "px-5 mr-3 py-3 text-lg rounded-lg"
         }
       >
         Home
       </NavLink>
 
       <NavLink
-        to="/"
+        to="/addItem"
         className={({ isActive, isPending }) =>
           isPending
             ? "pending"
             : isActive
             ? "underline text-orange-700 px-5 mr-3 py-3 text-lg rounded-lg"
-            : ""
+            : " px-5 mr-3 py-3 text-lg rounded-lg"
         }
       >
-        Add Products
+        Add Item
       </NavLink>
       <NavLink
         to="/"
@@ -35,11 +42,23 @@ const Navbar = () => {
           isPending
             ? "pending"
             : isActive
-            ? "underline text-orange-700 px-5 mr-3 py-3 text-lg rounded-lg"
-            : ""
+            ? "underline text-orange-700 px-5 mr-3 py-3 text-lg rounded-lg "
+            : "px-5 mr-3 py-3 text-lg rounded-lg"
         }
       >
         My Cart
+      </NavLink>
+      <NavLink
+        to="/about"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending"
+            : isActive
+            ? "underline text-orange-700 px-5 mr-3 py-3 text-lg rounded-lg "
+            : "px-5 mr-3 py-3 text-lg rounded-lg"
+        }
+      >
+        About Us
       </NavLink>
     </>
   );
@@ -84,9 +103,37 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn text-orange-700">
-            Login
-          </Link>
+          {user?.email ? (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src={user.photoURL} alt={user.displayName} />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <button className="btn btn-sm  btn-ghost">
+                    {user.displayName}
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="btn btn-sm  btn-ghost"
+                    onClick={handleSignOut}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-sm  btn-ghost">Login</button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
