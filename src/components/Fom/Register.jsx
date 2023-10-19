@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
+import SocialIcon from "../SocialIcon";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { createUser, handleUpdateProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,7 +14,6 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const img = form.photo.value;
-    console.log(name, email, password, img);
     const accepted = e.target.terms.checked;
     if (password.length < 6) {
       toast.error("please provide a password at least 6 characters");
@@ -31,7 +31,7 @@ const Register = () => {
     // create user
     createUser(email, password)
       .then(() => {
-        handleUpdateProfile(name, img).then(() => {
+        updateUserProfile(name, img).then(() => {
           toast.success("User created successfully");
           navigate("/login");
         });
@@ -39,13 +39,13 @@ const Register = () => {
       .catch((err) => toast(err.message));
   };
   return (
-    <div className="bg-gray-100 flex items-center justify-center h-screen">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h2 className="text-2xl text-center font-semibold text-orange-400 mb-4">
+    <div className="bg-gray-100 flex items-center justify-center rounded-lg min-h-screen ">
+      <div className="bg-white p-8 rounded-lg shadow-md w-1/2 mt-4">
+        <h2 className="text-xl text-center font-semibold text-orange-400 mb-2">
           Registration Now
         </h2>
         <form onSubmit={handleRegister}>
-          <div className="mb-4">
+          <div className="mb-2">
             <label className="block text-gray-600">Name</label>
             <input
               type="text"
@@ -56,7 +56,7 @@ const Register = () => {
               required
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label className="block text-gray-600">Email</label>
             <input
               type="email"
@@ -67,7 +67,7 @@ const Register = () => {
               required
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label className="block text-gray-600">Password</label>
             <input
               type="password"
@@ -78,7 +78,7 @@ const Register = () => {
               required
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label className="block text-gray-600">Photo URL</label>
             <input
               type="text"
@@ -93,7 +93,7 @@ const Register = () => {
           <div className="flex items-center justify-between ">
             <p className="text-lg font-medium">Already have an account?</p>
             <Link to="/login">
-              <p className="text-orange-700 text-lg font-bold underline">
+              <p className="text-orange-400 text-lg font-bold underline">
                 Login
               </p>
             </Link>
@@ -101,7 +101,7 @@ const Register = () => {
           <input type="checkbox" name="terms" id="terms" />
           <label className="px-3">
             Accept our
-            <a className="text-lg ml-2 underline text-green-700" href="">
+            <a className="text-lg ml-2 underline text-orange-700" href="">
               terms and conditions
             </a>
           </label>
@@ -115,6 +115,7 @@ const Register = () => {
             </button>
           </div>
         </form>
+        <SocialIcon></SocialIcon>
       </div>
     </div>
   );

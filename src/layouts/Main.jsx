@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import { Toaster } from "react-hot-toast";
 const Main = () => {
   return (
-    <div className="max-w-[1240px] mx-auto">
+    <div className="max-w-6xl mx-auto">
       <Toaster></Toaster>
       <Navbar></Navbar>
       <Outlet></Outlet>

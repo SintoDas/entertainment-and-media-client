@@ -1,10 +1,47 @@
 import React from "react";
 
 const AddProduct = () => {
+  const handlePostData = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const img = form.image.value;
+    const name = form.name.value;
+    const brandName = form.brand.value;
+
+    const type = form.type.value;
+    const price = form.price.value;
+    const description = form.description.value;
+    const rating = form.rating.value;
+    console.log(img, name, brandName, type, price, description, rating);
+
+    const postData = {
+      img,
+      name,
+      brandName,
+      type,
+      price,
+      description,
+      rating,
+    };
+    console.log(postData);
+    fetch("http://localhost:5000/media", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(postData),
+    })
+      .then((res) => {
+        res.json();
+      })
+      .then((data) => {
+        console.log(data);
+      });
+  };
   return (
     <div className="bg-slate-100 px-2 py-2 rounded-md shadow-sm">
       <div className="max-w-md mx-auto mt-10 p-4 bg-white rounded-lg shadow-lg">
-        <form>
+        <form onSubmit={handlePostData}>
           <div className="mb-2">
             <label className="block text-gray-600 font-semibold mb-2">
               Image
@@ -33,8 +70,8 @@ const AddProduct = () => {
             </label>
             <input
               type="text"
-              id="brandName"
-              name="brandName"
+              id="brand"
+              name="brand"
               className="w-full px-3 py-2 border rounded-md"
             />
           </div>
@@ -68,8 +105,8 @@ const AddProduct = () => {
               Short Description
             </label>
             <textarea
-              id="shortDescription"
-              name="shortDescription"
+              id="description"
+              name="description"
               className="w-full px-3 py-2 border rounded-md"
             />
           </div>

@@ -1,9 +1,12 @@
 import { createContext, useEffect, useState } from "react";
 import {
+  FacebookAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -11,6 +14,8 @@ import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -19,6 +24,16 @@ const AuthProvider = ({ children }) => {
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+  // login with google
+  const googleLogin = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+  // login in with facebook
+  const facebookLogin = () => {
+    setLoading(true);
+    return signInWithPopup(auth, facebookProvider);
   };
 
   // user tracking
@@ -43,10 +58,10 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth);
   };
-  const handleUpdateProfile = (name, img) => {
+  const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
-      photoURL: img,
+      photoURL: photo,
     });
   };
 
@@ -56,7 +71,9 @@ const AuthProvider = ({ children }) => {
     createUser,
     signIn,
     logOut,
-    handleUpdateProfile,
+    updateUserProfile,
+    googleLogin,
+    facebookLogin,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
