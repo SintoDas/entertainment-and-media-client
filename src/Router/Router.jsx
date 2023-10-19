@@ -8,6 +8,7 @@ import AddProduct from "../components/AddProduct";
 import NotFound from "../components/NotFound";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import MyCart from "../pages/MyCart/MyCart";
+import MatchBranProduct from "../pages/MatchBrandProduct/MatchBranProducts";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/media"),
+        loader: () => fetch(`brandCategory.json`),
       },
       {
         path: "/login",
@@ -41,6 +42,15 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "/media/:brand",
+        element: <MatchBranProduct></MatchBranProduct>,
+        loader: ({ params }) => {
+          console.log(params);
+          return fetch(`http://localhost:5000/media/${params.brand}`);
+        },
+      },
+
       {
         path: "/cart",
         element: (

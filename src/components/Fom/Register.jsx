@@ -40,7 +40,7 @@ const Register = () => {
   };
   return (
     <div className="bg-gray-100 flex items-center justify-center rounded-lg min-h-screen ">
-      <div className="bg-white p-8 rounded-lg shadow-md w-1/2 mt-4">
+      <div className="bg-white p-8 rounded-lg shadow-md  mt-4">
         <h2 className="text-xl text-center font-semibold text-orange-400 mb-2">
           Registration Now
         </h2>
