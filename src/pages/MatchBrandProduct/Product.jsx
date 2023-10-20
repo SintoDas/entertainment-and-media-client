@@ -12,6 +12,13 @@ const Product = ({ product }) => {
         console.log(data);
       });
   };
+  const handleUpdateProduct = (id) => {
+    fetch(`http://localhost:5000/update/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <div>
@@ -45,9 +52,14 @@ const Product = ({ product }) => {
                 Details
               </button>
             </Link>
-            <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-              Update
-            </button>
+            <Link to={`/update/${_id}`}>
+              <button
+                onClick={() => handleUpdateProduct(_id)}
+                className="px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600"
+              >
+                Update
+              </button>
+            </Link>
           </div>
         </div>
       </div>

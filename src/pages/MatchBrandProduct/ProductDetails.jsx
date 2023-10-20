@@ -25,6 +25,11 @@ const ProductDetails = () => {
               <p className="text-indigo-600 text-lg font-semibold">{price}</p>
             </div>
             <p className="text-gray-600 text-sm">{type}</p>
+            <div className="mt-4 flex space-x-4">
+              <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                add to cart
+              </button>
+            </div>
           </div>
         </div>
       </div>

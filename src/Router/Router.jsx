@@ -10,6 +10,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import MyCart from "../pages/MyCart/MyCart";
 import MatchBranProduct from "../pages/MatchBrandProduct/MatchBranProducts";
 import ProductDetails from "../pages/MatchBrandProduct/ProductDetails";
+import UpdateData from "../pages/UpdateData/UpdateData";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,14 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/single/${params.id}`),
       },
 
+      {
+        path: "/update/:id",
+        element: <UpdateData></UpdateData>,
+        loader: ({ params }) => {
+          console.log(params);
+          return fetch(`http://localhost:5000/update/${params.id}`);
+        },
+      },
       {
         path: "/cart",
         element: (
