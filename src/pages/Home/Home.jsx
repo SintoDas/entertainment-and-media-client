@@ -3,9 +3,11 @@ import Banner from "../../components/Banner";
 import Footer from "../../components/Footer";
 import AboutUs from "../AboutUs/AboutUs";
 import HomeCard from "./HomeCard";
+import ThemeToggle from "../ThemeProvider/ThemeToggle";
 
 const Home = () => {
   const loadedData = useLoaderData();
+
   return (
     <div>
       <Banner></Banner>

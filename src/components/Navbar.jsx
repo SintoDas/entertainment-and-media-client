@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import navImg from "../assets/entertainment.png";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import ThemeToggle from "../pages/ThemeProvider/ThemeToggle";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -72,6 +73,7 @@ const Navbar = () => {
       >
         Contact Us
       </NavLink>
+      <ThemeToggle></ThemeToggle>
     </>
   );
   return (
@@ -108,7 +110,7 @@ const Navbar = () => {
               src={navImg}
               alt="media-image"
             />
-            <span className="text-orange-00">Entertainment & media</span>
+            <span className="text-lg">Entertainment & media</span>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
