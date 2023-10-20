@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const { brandName, description, img, name, price, rating, type, _id } =
-    product;
+  const { brandName, img, name, price, rating, type, _id } = product;
 
   const handleSingleProduct = (id) => {
     fetch(`http://localhost:5000/single/${id}`)

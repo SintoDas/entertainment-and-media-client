@@ -11,6 +11,7 @@ import MyCart from "../pages/MyCart/MyCart";
 import MatchBranProduct from "../pages/MatchBrandProduct/MatchBranProducts";
 import ProductDetails from "../pages/MatchBrandProduct/ProductDetails";
 import UpdateData from "../pages/UpdateData/UpdateData";
+import ContactUs from "../pages/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,12 @@ const router = createBrowserRouter([
         path: "/about",
         element: <AboutUs></AboutUs>,
       },
+
+      {
+        path: "/contact",
+        element: <ContactUs></ContactUs>,
+      },
+
       {
         path: "/addItem",
         element: (

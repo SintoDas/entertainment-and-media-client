@@ -60,6 +60,18 @@ const Navbar = () => {
       >
         About Us
       </NavLink>
+      <NavLink
+        to="/contact"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending"
+            : isActive
+            ? "underline text-orange-700 px-5 mr-3 py-3 text-lg rounded-lg "
+            : "px-5 mr-3 py-3 text-lg rounded-lg"
+        }
+      >
+        Contact Us
+      </NavLink>
     </>
   );
   return (
