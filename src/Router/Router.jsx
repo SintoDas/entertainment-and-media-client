@@ -9,6 +9,7 @@ import NotFound from "../components/NotFound";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import MyCart from "../pages/MyCart/MyCart";
 import MatchBranProduct from "../pages/MatchBrandProduct/MatchBranProducts";
+import ProductDetails from "../pages/MatchBrandProduct/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,16 @@ const router = createBrowserRouter([
           console.log(params);
           return fetch(`http://localhost:5000/media/${params.brand}`);
         },
+      },
+      {
+        path: "/single/:id",
+        element: (
+          <PrivateRoute>
+            <ProductDetails></ProductDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/single/${params.id}`),
       },
 
       {

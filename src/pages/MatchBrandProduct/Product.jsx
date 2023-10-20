@@ -1,8 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
   const { brandName, description, img, name, price, rating, type, _id } =
     product;
+
+  const handleSingleProduct = (id) => {
+    fetch(`http://localhost:5000/single/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   return (
     <div>
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -27,9 +37,14 @@ const Product = ({ product }) => {
             <span className="text-gray-600">{rating}</span>
           </div>
           <div className="mt-4 flex space-x-4">
-            <button className="px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">
-              Details
-            </button>
+            <Link to={`/single/${_id}`}>
+              <button
+                onClick={() => handleSingleProduct(_id)}
+                className="px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600"
+              >
+                Details
+              </button>
+            </Link>
             <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
               Update
             </button>
