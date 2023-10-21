@@ -24,13 +24,16 @@ const AddProduct = () => {
       rating,
     };
     console.log(postData);
-    fetch("http://localhost:5000/media", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(postData),
-    })
+    fetch(
+      "https://entertainment-and-media-server-site-1ywkw62q4-sinto-das.vercel.app/media",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postData),
+      }
+    )
       .then((res) => {
         res.json();
       })

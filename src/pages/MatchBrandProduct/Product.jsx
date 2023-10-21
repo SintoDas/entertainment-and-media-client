@@ -5,14 +5,18 @@ const Product = ({ product }) => {
   const { brandName, img, name, price, rating, type, _id } = product;
 
   const handleSingleProduct = (id) => {
-    fetch(`http://localhost:5000/single/${id}`)
+    fetch(
+      `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/${id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
       });
   };
   const handleUpdateProduct = (id) => {
-    fetch(`http://localhost:5000/update/${id}`)
+    fetch(
+      `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/update/${id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
-import SocialIcon from "../SocialIcon";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -69,7 +68,6 @@ const Login = () => {
                 Login
               </button>
             </div>
-            <SocialIcon></SocialIcon>
           </form>
         </div>
       </div>

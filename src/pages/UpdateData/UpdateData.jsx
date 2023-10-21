@@ -24,13 +24,16 @@ const UpdateData = () => {
       rating,
     };
     console.log(updateData);
-    fetch(`http://localhost:5000/update/${singleData._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updateData),
-    })
+    fetch(
+      `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/update/${singleData._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updateData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

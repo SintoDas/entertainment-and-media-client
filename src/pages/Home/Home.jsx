@@ -4,6 +4,7 @@ import Footer from "../../components/Footer";
 import AboutUs from "../AboutUs/AboutUs";
 import HomeCard from "./HomeCard";
 import { useEffect, useState } from "react";
+import ContactUs from "../ContactUs/ContactUs";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -49,6 +50,7 @@ const Home = () => {
         ))}
       </div>
       <AboutUs></AboutUs>
+      <ContactUs></ContactUs>
       <Footer></Footer>
     </div>
   );

@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 const HomeCard = ({ item }) => {
   const { brandName, imageUrl } = item;
   const handleProduct = (brand) => {
-    fetch(`http://localhost:5000/media/${brand}`)
+    fetch(
+      `https://entertainment-and-media-server-site-1ywkw62q4-sinto-das.vercel.app/media/${brand}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -55,7 +55,9 @@ const router = createBrowserRouter([
         element: <MatchBranProduct></MatchBranProduct>,
         loader: ({ params }) => {
           console.log(params);
-          return fetch(`http://localhost:5000/media/${params.brand}`);
+          return fetch(
+            `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/media/${params.brand}`
+          );
         },
       },
       {
@@ -66,14 +68,18 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/single/${params.id}`),
+          fetch(
+            `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/single/${params.id}`
+          ),
       },
 
       {
         path: "/update/:id",
         element: <UpdateData></UpdateData>,
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/update/${params.id}`);
+          return fetch(
+            `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/update/${params.id}`
+          );
         },
       },
       {
@@ -84,7 +90,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/cart/${params.id}`),
+          fetch(
+            `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/cart/${params.id}`
+          ),
       },
     ],
   },
