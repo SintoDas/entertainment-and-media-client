@@ -56,7 +56,7 @@ const router = createBrowserRouter([
         loader: ({ params }) => {
           console.log(params);
           return fetch(
-            `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/media/${params.brand}`
+            `https://entertainment-and-media-server-site-6ucuaj3ll-sinto-das.vercel.app/media/${params.brand}`
           );
         },
       },
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/single/${params.id}`
+            `https://entertainment-and-media-server-site-6ucuaj3ll-sinto-das.vercel.app/single/${params.id}`
           ),
       },
 
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
         element: <UpdateData></UpdateData>,
         loader: ({ params }) => {
           return fetch(
-            `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/update/${params.id}`
+            `https://entertainment-and-media-server-site-6ucuaj3ll-sinto-das.vercel.app/update/${params.id}`
           );
         },
       },
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/cart/${params.id}`
+            `https://entertainment-and-media-server-site-6ucuaj3ll-sinto-das.vercel.app/cart/${params.id}`
           ),
       },
     ],

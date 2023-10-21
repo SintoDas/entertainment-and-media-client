@@ -25,7 +25,7 @@ const UpdateData = () => {
     };
     console.log(updateData);
     fetch(
-      `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/update/${singleData._id}`,
+      `https://entertainment-and-media-server-site-6ucuaj3ll-sinto-das.vercel.app/update/${singleData._id}`,
       {
         method: "PUT",
         headers: {

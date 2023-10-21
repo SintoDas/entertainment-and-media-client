@@ -6,7 +6,7 @@ const ProductDetails = () => {
   const { brandName, description, img, name, price, type, _id } = singleData;
   const handleCart = (id) => {
     fetch(
-      `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/cart/${id}`
+      `https://entertainment-and-media-server-site-6ucuaj3ll-sinto-das.vercel.app/cart/${id}`
     )
       .then((res) => res.json())
       .then((data) => {

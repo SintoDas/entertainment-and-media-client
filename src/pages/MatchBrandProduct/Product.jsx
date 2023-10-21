@@ -6,7 +6,7 @@ const Product = ({ product }) => {
 
   const handleSingleProduct = (id) => {
     fetch(
-      `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/${id}`
+      `https://entertainment-and-media-server-site-6ucuaj3ll-sinto-das.vercel.app/${id}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -15,7 +15,7 @@ const Product = ({ product }) => {
   };
   const handleUpdateProduct = (id) => {
     fetch(
-      `https://entertainment-and-media-server-site-13tngwua9-sinto-das.vercel.app/update/${id}`
+      `https://entertainment-and-media-server-site-6ucuaj3ll-sinto-das.vercel.app/update/${id}`
     )
       .then((res) => res.json())
       .then((data) => {

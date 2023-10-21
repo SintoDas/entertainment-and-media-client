@@ -10,3 +10,4 @@ we store data in mongod
 3.I want improve this in future versions
 
 #Project Link is here :https://y-btgzr0qt4-sinto-das.vercel.app/
+#update link : https://y-1avf57mbt-sinto-das.vercel.app/
