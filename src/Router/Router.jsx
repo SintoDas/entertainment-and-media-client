@@ -17,13 +17,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    errorElement: <NotFound />,
-
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch(`brandCategory.json`),
+        loader: () => fetch(`./brandCategory.json`),
       },
       {
         path: "/login",
@@ -74,17 +73,18 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <UpdateData></UpdateData>,
         loader: ({ params }) => {
-          console.log(params);
           return fetch(`http://localhost:5000/update/${params.id}`);
         },
       },
       {
-        path: "/cart",
+        path: "/cart/:id",
         element: (
           <PrivateRoute>
             <MyCart></MyCart>
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/cart/${params.id}`),
       },
     ],
   },

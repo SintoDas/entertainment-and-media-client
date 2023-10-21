@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { matchPath, useLoaderData } from "react-router-dom";
 import Slider from "../Slider/Slider";
 import Product from "./Product";
-import toast from "react-hot-toast";
 
 const MatchBranProduct = () => {
   const matchProducts = useLoaderData();
+  if (matchProducts.length === 0) {
+    return ` No match products available `;
+  }
 
   return (
     <div>

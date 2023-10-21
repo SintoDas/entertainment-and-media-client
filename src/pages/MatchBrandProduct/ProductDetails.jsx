@@ -1,9 +1,16 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ProductDetails = () => {
   const singleData = useLoaderData();
   const { brandName, description, img, name, price, type, _id } = singleData;
+  const handleCart = (id) => {
+    fetch(`http://localhost:5000/cart/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <div>
@@ -26,9 +33,14 @@ const ProductDetails = () => {
             </div>
             <p className="text-gray-600 text-sm">{type}</p>
             <div className="mt-4 flex space-x-4">
-              <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-                add to cart
-              </button>
+              <Link to={`/cart/${_id}`}>
+                <button
+                  onClick={() => handleCart(_id)}
+                  className="px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600"
+                >
+                  Add to Cart
+                </button>
+              </Link>
             </div>
           </div>
         </div>

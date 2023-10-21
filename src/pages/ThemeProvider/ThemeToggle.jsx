@@ -14,10 +14,10 @@ const ThemeToggle = () => {
 
   return (
     <button
-      className="btn bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-2 rounded"
+      className="btn bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
       onClick={toggleTheme}
     >
-      Mode
+      MODE
     </button>
   );
 };

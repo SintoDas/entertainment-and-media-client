@@ -38,7 +38,7 @@ const Navbar = () => {
         Add Item
       </NavLink>
       <NavLink
-        to="/cart"
+        to="/cart/:id"
         className={({ isActive, isPending }) =>
           isPending
             ? "pending"
@@ -110,7 +110,9 @@ const Navbar = () => {
               src={navImg}
               alt="media-image"
             />
-            <span className="text-lg">Entertainment & media</span>
+            <span className="text-lg text-orange-600">
+              Entertainment & media
+            </span>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
