@@ -3,17 +3,18 @@ import { useLoaderData } from "react-router-dom";
 
 const MyCart = () => {
   const loadedCart = useLoaderData();
-  const { img, name, brandName, type, price, description, rating } = loadedCart;
+  const { name } = loadedCart;
   console.log(name);
-  const cartData = {
-    img,
-    name,
-    brandName,
-    type,
-    price,
-    description,
-    rating,
-  };
+  // img, name, brandName, type, price, description, rating
+  // const cartData = {
+  //   img,
+  //   name,
+  //   brandName,
+  //   type,
+  //   price,
+  //   description,
+  //   rating,
+  // };
 
   // fetch("http://localhost:5000/cart", {
   //   method: "POST",
@@ -31,7 +32,7 @@ const MyCart = () => {
 
   return (
     <div>
-      <h2>name</h2>
+      <h2>name:name</h2>
     </div>
   );
 };
